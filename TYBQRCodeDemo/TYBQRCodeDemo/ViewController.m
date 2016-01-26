@@ -20,8 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imageView.image = [TYBQRCodeCreater createWithString:@"www.dansltech.cn" qrColor:[UIColor redColor] bgColor:[UIColor whiteColor]];
-    self.imageView.image =[TYBQRCodeCreater createQRImage:[TYBQRCodeCreater createWithString:@"www.dansltech.com" qrColor:[UIColor redColor] bgColor:[UIColor whiteColor]] logoImage:[UIImage imageNamed:@"dsl"]];
+//    self.imageView.image = [TYBQRCodeCreater createWithString:@"www.dansltech.cn" qrColor:[UIColor blackColor] bgColor:[UIColor whiteColor]];
+    self.imageView.image = [TYBQRCodeCreater createQRImage:[TYBQRCodeCreater createWithString:@"www.dansltech.com" qrColor:[UIColor blackColor] bgColor:[UIColor whiteColor]] logoImage:[UIImage imageNamed:@"dsl"]];
 }
 
 - (IBAction)scan:(id)sender {
@@ -47,6 +47,7 @@
     
     [self.navigationController pushViewController:_scanVc animated:YES];
 }
+
 - (void)scanView:(TYBQRScanViewController *)scanViewController endScanWithResult:(NSString *)result{
     [self.navigationController popViewControllerAnimated:YES];
   

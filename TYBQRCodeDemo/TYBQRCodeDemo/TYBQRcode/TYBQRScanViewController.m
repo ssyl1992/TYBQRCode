@@ -94,7 +94,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self performSelector:@selector(startScan) withObject:nil afterDelay:0.2];
+    [self performSelector:@selector(startScan) withObject:nil afterDelay:0.2f];
+//    [self startScan];
     [self setTheme];
     
 
@@ -110,6 +111,8 @@
     }
 
     [self setDownGesture];
+//    [self startScan];
+//    [self performSelector:@selector(startScan) withObject:nil afterDelay:0.2];
 }
 
 #pragma mark -- 设置初始化显示的样式
@@ -206,7 +209,6 @@
 
 // 开启扫描
 - (void)startScan {
-    
     // 取得权限,开始扫描
     if ([self getCameraPermisson]) {
         // 1 获取设备摄像头对象
@@ -216,6 +218,7 @@
         AVCaptureDeviceInput *input  = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
         if (error) {
             NSLog(@"input error:%@",error);
+            return;
         }
         //3 创建输出流,将其显示到屏幕上
         AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc]init];
@@ -238,24 +241,20 @@
         _layer.videoGravity = AVLayerVideoGravityResizeAspectFill;
         
         [self.view.layer addSublayer:_layer];
-        [ self.view.layer  addSublayer:self.tipLable.layer];
-        [ self.view.layer  addSublayer:self.scanView.layer];
-        [ self.view.layer  addSublayer:self.toolView.layer];
-        [ self.view.layer  addSublayer:self.toolTipLabel.layer];
+        [self.view.layer addSublayer:self.tipLable.layer];
+        [self.view.layer addSublayer:self.scanView.layer];
+        [self.view.layer addSublayer:self.toolView.layer];
+        [self.view.layer addSublayer:self.toolTipLabel.layer];
+        
         if (self.scanAnimation) {
             [self.scanView.layer addSublayer:self.animationView.layer];
             [self startAnimation];
         }else{
             [self stopAnimation];
         }
-
-        
-        
     
         // 6 启动管道
         [_session startRunning];
- 
-        
     }else {// 提示未取得权限
         self.tipLable.text = @"打开摄像头失败,请在设置中更改权限";
     }
