@@ -12,6 +12,7 @@
 
 
 
+
 @interface TYBQRScanViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *angelViews;
@@ -51,9 +52,12 @@
  */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
 
 @property (nonatomic, strong) UIView *animationView;
+
+
 
 @end
 
@@ -69,6 +73,17 @@
 //    
 //}
 
++ (instancetype)scanView{
+    
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"TYBQRScan" bundle:nil];
+    TYBQRScanViewController *scanVc = (TYBQRScanViewController *)[story instantiateViewControllerWithIdentifier:@"ScanView"];
+    if (scanVc) {
+        scanVc.scanAnimation = YES;
+    }
+    
+    
+    return scanVc;
+}
 
 
 - (UIView *)animationView {
@@ -83,19 +98,19 @@
 
 
 
-- (instancetype)init{
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"TYBQRScan" bundle:nil];
-    if ((self = (TYBQRScanViewController *)[story instantiateViewControllerWithIdentifier:@"ScanView"])) {
-        self.scanAnimation = YES;
-       
-    }
-    return self;
-}
+//- (instancetype)init{
+//    UIStoryboard *story = [UIStoryboard storyboardWithName:@"TYBQRScan" bundle:nil];
+//    if ((self = (TYBQRScanViewController *)[story instantiateViewControllerWithIdentifier:@"ScanView"])) {
+//        self.scanAnimation = YES;
+//       
+//    }
+//    return self;
+//}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self performSelector:@selector(startScan) withObject:nil afterDelay:0.2f];
-//    [self startScan];
+    [self performSelector:@selector(startScan) withObject:nil afterDelay:0];
+//  [self startScan];
     [self setTheme];
     
 
@@ -111,8 +126,7 @@
     }
 
     [self setDownGesture];
-//    [self startScan];
-//    [self performSelector:@selector(startScan) withObject:nil afterDelay:0.2];
+
 }
 
 #pragma mark -- 设置初始化显示的样式
@@ -216,10 +230,14 @@
         NSError *error = nil;
         // 2 从摄像头获取输入流
         AVCaptureDeviceInput *input  = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+//        self.tipLable.text = @"正在启动准备摄像头，请稍候";
         if (error) {
             NSLog(@"input error:%@",error);
+            self.tipLable.text = @"打开摄像头失败";
             return;
         }
+        [self.indicator stopAnimating];
+//        self.tipLable.text = @"请将方框对准您要扫描的二维码";
         //3 创建输出流,将其显示到屏幕上
         AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc]init];
         [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
@@ -231,6 +249,8 @@
         // 设置输出流的品质
         [_session setSessionPreset:AVCaptureSessionPresetHigh];
         
+    
+        
         // 设置扫描的数据类型 :二维码(默认)
         output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
         
@@ -239,12 +259,19 @@
         _layer = [AVCaptureVideoPreviewLayer layerWithSession:_session];
         _layer.frame = self.view.frame;
         _layer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+
         
-        [self.view.layer addSublayer:_layer];
-        [self.view.layer addSublayer:self.tipLable.layer];
-        [self.view.layer addSublayer:self.scanView.layer];
-        [self.view.layer addSublayer:self.toolView.layer];
-        [self.view.layer addSublayer:self.toolTipLabel.layer];
+        
+        UIView *view = [[UIView alloc]initWithFrame:self.view.frame];
+
+        [view.layer addSublayer:_layer];
+        
+        [self.view insertSubview:view atIndex:0];
+
+        // 设置遮罩，非扫描区域模糊
+        [self setFilterOnView:view];
+       
+        
         
         if (self.scanAnimation) {
             [self.scanView.layer addSublayer:self.animationView.layer];
@@ -272,6 +299,9 @@
             AVMetadataMachineReadableCodeObject *obj = metadataObjects.firstObject;
             NSLog(@"扫描到的二维码是:%@",obj.stringValue);
         [self.delegate scanView:self endScanWithResult:obj.stringValue];
+    }else{
+        // 扫描失败
+        [self.delegate scanViewDidFailed:self];
     }
 }
 
@@ -285,6 +315,37 @@
 
 - (void)stopAnimation {
     [self.animationView removeFromSuperview];
+}
+
+- (void)setFilterOnView:(UIView *)view {
+    
+    UIColor *filterColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:0.6];
+    //
+    CGFloat scanAreaTop = self.scanView.frame.origin.y+5;
+    CGFloat scanAreaBottom = self.scanView.frame.origin.y + self.scanView.frame.size.height-5;
+    CGFloat scanAreaLeft = self.scanView.frame.origin.x+5;
+    CGFloat scanAreaRight = self.scanView.frame.origin.x + self.scanView.frame.size.width-5;
+    CGFloat screenWidth = self.view.frame.size.width;
+    CGFloat screenHeight = self.view.frame.size.height;
+    
+    
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, scanAreaTop)];
+    topView.backgroundColor = filterColor;
+    [self.view insertSubview:topView aboveSubview:view];
+    
+    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, scanAreaBottom, screenWidth, screenHeight-scanAreaBottom)];
+    bottomView.backgroundColor = filterColor;
+    [self.view insertSubview:bottomView aboveSubview:view];
+    
+    UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, scanAreaTop, scanAreaLeft, self.scanView.frame.size.height-10)];
+    NSLog(@"%@",NSStringFromCGRect(leftView.frame));
+    leftView.backgroundColor = filterColor;
+    [self.view insertSubview:leftView aboveSubview:view];
+    
+    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(scanAreaRight, scanAreaTop, screenWidth-scanAreaRight, self.scanView.frame.size.height-10)];
+    NSLog(@"%@",NSStringFromCGRect(rightView.frame));
+    rightView.backgroundColor = filterColor;
+    [self.view insertSubview:rightView aboveSubview:view];
 }
 
 @end

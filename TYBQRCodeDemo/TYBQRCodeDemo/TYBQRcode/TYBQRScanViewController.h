@@ -14,6 +14,7 @@
 @protocol TYBQRScanViewControllerDelegate <NSObject>
 
 - (void)scanView:(TYBQRScanViewController *) scanViewController endScanWithResult:(NSString *)result;
+- (void)scanViewDidFailed:(TYBQRScanViewController *) scanViewController ;
 
 @end
 
@@ -51,6 +52,11 @@
  */
 @property(nonatomic, assign) BOOL scanAnimation;
 
+/**
+ * 初始化方式
+ */
++ (instancetype)scanView;
+
 
 /**
  *  扫描成功开启震动提示,默认开启
@@ -71,5 +77,7 @@
 // 停止扫描动画
 - (void)stopAnimation;
 
+// 默认是开启的，不需手动调用，提供给扫描失败时，用户需要重新开始扫描使用
+- (void)startScan;
 
 @end

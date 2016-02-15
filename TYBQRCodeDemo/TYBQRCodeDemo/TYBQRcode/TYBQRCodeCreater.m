@@ -11,19 +11,19 @@
 @implementation TYBQRCodeCreater
 
 #pragma mark -- 生成二维码图片
-+ (UIImage *)createWithString:(NSString *)string {
++ (UIImage *)createWithString:(NSString *)string  {
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     
     [filter setValue:data forKey:@"inputMessage"];
     [filter setValue:@"M" forKey:@"inputCorrectionLevel"];
     
-    return [UIImage imageWithCIImage:filter.outputImage];
+    return [UIImage imageWithCIImage:filter.outputImage];;
 }
 
 
 #pragma mark -- 自定义颜色和背景颜色的二维码
-+ (UIImage *)createWithString:(NSString *)string qrColor:(UIColor *)qrColor bgColor:(UIColor *)bgColor {
++ (UIImage *)createWithString:(NSString *)string qrColor:(UIColor *)qrColor bgColor:(UIColor *)bgColor size:(CGSize)size {
     
     NSData *data = [string dataUsingEncoding: NSUTF8StringEncoding];
     
@@ -43,9 +43,7 @@
     CIImage *qrImage = colorFilter.outputImage;
     
     //绘制
-    CGSize size = CGSizeMake(300, 300);
     CGImageRef cgImage = [[CIContext contextWithOptions:nil] createCGImage:qrImage fromRect:qrImage.extent];
-    
     UIGraphicsBeginImageContext(size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetInterpolationQuality(context, kCGInterpolationNone);
@@ -73,6 +71,23 @@
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:logoRect];
     [[UIColor whiteColor] setFill];
     [path fill];
+    
+    CGFloat width = qrImage.size.width/49 * 5.5;
+    
+    UIBezierPath *pathTopLeft = [UIBezierPath bezierPathWithRect:CGRectMake(width, width, width, width)];
+    [[UIColor greenColor] setFill];
+    [pathTopLeft fill];
+    
+    UIBezierPath *pathTopRight = [UIBezierPath bezierPathWithRect:CGRectMake(qrImage.size.width - 2 * width, width, width, width)];
+    [[UIColor redColor] setFill];
+    [pathTopRight fill];
+    
+    UIBezierPath *pathBotLeft = [UIBezierPath bezierPathWithRect:CGRectMake(width, qrImage.size.height-2*width , width, width)];
+    [[UIColor blueColor] setFill];
+    [pathBotLeft fill];
+    
+    
+    
     
     // 再把logo画在背景区域上
     [logoImage drawInRect:logoRect];

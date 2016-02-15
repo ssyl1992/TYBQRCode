@@ -30,7 +30,7 @@
  *
  *  @return 返回自定义二维码图片
  */
-+ (UIImage *)createWithString:(NSString *)string qrColor:(UIColor *)qrColor bgColor:(UIColor *)bgColor;
++ (UIImage *)createWithString:(NSString *)string qrColor:(UIColor *)qrColor bgColor:(UIColor *)bgColor size:(CGSize)size;
 
 
 /**
@@ -41,6 +41,6 @@
  *
  *  @return 返回带有logo的二维码图片
  */
-+(UIImage *)createQRImage:(UIImage *)qrImage logoImage:(UIImage *)logoImage;
++(UIImage *)createQRImage:(UIImage *)qrImage logoImage:(UIImage *)logoImage ;
 
 @end

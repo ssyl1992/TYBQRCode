@@ -20,12 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.imageView.image = [TYBQRCodeCreater createWithString:@"www.dansltech.cn" qrColor:[UIColor blackColor] bgColor:[UIColor whiteColor]];
-    self.imageView.image = [TYBQRCodeCreater createQRImage:[TYBQRCodeCreater createWithString:@"www.dansltech.com" qrColor:[UIColor blackColor] bgColor:[UIColor whiteColor]] logoImage:[UIImage imageNamed:@"dsl"]];
+
+    self.imageView.image = [TYBQRCodeCreater createQRImage:[TYBQRCodeCreater createWithString:@"www.dansltech.com" qrColor:[UIColor blackColor] bgColor:[UIColor whiteColor] size:CGSizeMake(240, 240)] logoImage:[UIImage imageNamed:@"dsl"]];
+    
 }
 
 - (IBAction)scan:(id)sender {
-    _scanVc = [[TYBQRScanViewController alloc]init];
+    _scanVc = [TYBQRScanViewController scanView];
     _scanVc.delegate = self;
 //    _scanVc.scanAnimation = YES;
     _scanVc.scanAngelColor = [UIColor redColor];

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -15,13 +15,16 @@
                         <viewControllerLayoutGuide type="top" id="JPa-iJ-sTl"/>
                         <viewControllerLayoutGuide type="bottom" id="bU7-fP-SjE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="irz-fE-Bl1">
+                    <view key="view" contentMode="scaleToFill" id="irz-fE-Bl1" customClass="TYBQRSCanView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWH-NR-UkA" userLabel="ScanView">
                                 <rect key="frame" x="85" y="84" width="429" height="428.5"/>
                                 <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="puz-WI-3Ak">
+                                        <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                    </activityIndicatorView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVf-KX-kjr" userLabel="leftTopV">
                                         <rect key="frame" x="0.0" y="0.0" width="5" height="24"/>
                                         <color key="backgroundColor" red="0.94543511476980757" green="1" blue="0.28921956522331949" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,6 +64,9 @@
                                             <constraint firstAttribute="height" constant="24" id="YgX-oc-L9M"/>
                                             <constraint firstAttribute="width" constant="5" id="jlS-T9-mfo"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="261" width="5" height="24"/>
+                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTw-wR-Nq6" userLabel="leftBotH">
                                         <rect key="frame" x="5" y="423" width="19" height="5"/>
@@ -69,6 +75,9 @@
                                             <constraint firstAttribute="width" constant="19" id="ZBI-IX-D2q"/>
                                             <constraint firstAttribute="height" constant="5" id="vST-JD-ArJ"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="5" y="280" width="19" height="5"/>
+                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8X-a0-BVI" userLabel="rightBotV">
                                         <rect key="frame" x="424" y="404" width="5" height="24"/>
@@ -77,6 +86,9 @@
                                             <constraint firstAttribute="height" constant="24" id="3Bw-Kc-RNJ"/>
                                             <constraint firstAttribute="width" constant="5" id="fOH-aI-plh"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="281" y="261" width="5" height="24"/>
+                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-fq-kaB" userLabel="rightBotH">
                                         <rect key="frame" x="405" y="423.5" width="19" height="5"/>
@@ -85,6 +97,9 @@
                                             <constraint firstAttribute="width" constant="19" id="CwU-4Y-9Pf"/>
                                             <constraint firstAttribute="height" constant="5" id="br5-Zy-Hu5"/>
                                         </constraints>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="262" y="280" width="19" height="5"/>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -93,8 +108,10 @@
                                     <constraint firstItem="jxv-10-6sJ" firstAttribute="leading" secondItem="PWH-NR-UkA" secondAttribute="leading" id="EXO-re-YQm"/>
                                     <constraint firstAttribute="bottom" secondItem="aHi-fq-kaB" secondAttribute="bottom" id="HbS-IV-lgn"/>
                                     <constraint firstItem="Xw9-Ci-GfS" firstAttribute="top" secondItem="PWH-NR-UkA" secondAttribute="top" id="MFA-u8-wOu"/>
+                                    <constraint firstItem="puz-WI-3Ak" firstAttribute="centerY" secondItem="PWH-NR-UkA" secondAttribute="centerY" id="Q11-aC-ClT"/>
                                     <constraint firstAttribute="trailing" secondItem="lzT-kI-r6G" secondAttribute="trailing" id="Qvz-WZ-39P"/>
                                     <constraint firstAttribute="bottom" secondItem="Z8X-a0-BVI" secondAttribute="bottom" id="Rsf-Dm-aGe"/>
+                                    <constraint firstItem="puz-WI-3Ak" firstAttribute="centerX" secondItem="PWH-NR-UkA" secondAttribute="centerX" id="SXk-rv-ITl"/>
                                     <constraint firstItem="bWW-UP-O4d" firstAttribute="leading" secondItem="XVf-KX-kjr" secondAttribute="trailing" id="WK9-vm-lya"/>
                                     <constraint firstItem="Z8X-a0-BVI" firstAttribute="leading" secondItem="aHi-fq-kaB" secondAttribute="trailing" id="WUS-za-Ss2"/>
                                     <constraint firstItem="lzT-kI-r6G" firstAttribute="top" secondItem="PWH-NR-UkA" secondAttribute="top" id="ZMu-1r-K2L"/>
@@ -107,6 +124,24 @@
                                     <constraint firstAttribute="trailing" secondItem="Z8X-a0-BVI" secondAttribute="trailing" id="wdM-OO-bvh"/>
                                     <constraint firstItem="XVf-KX-kjr" firstAttribute="top" secondItem="PWH-NR-UkA" secondAttribute="top" id="zVI-KS-xvp"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="puz-WI-3Ak"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="Q11-aC-ClT"/>
+                                        <exclude reference="SXk-rv-ITl"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="puz-WI-3Ak"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="Q11-aC-ClT"/>
+                                        <include reference="SXk-rv-ITl"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请将方框对准二维码" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9E-f5-RTc">
                                 <rect key="frame" x="44" y="64" width="512" height="44"/>
@@ -143,15 +178,19 @@
                             <constraint firstItem="WYL-tq-9Nj" firstAttribute="centerX" secondItem="irz-fE-Bl1" secondAttribute="centerX" id="DoJ-fY-OCJ"/>
                             <constraint firstItem="oEK-b7-uu2" firstAttribute="leading" secondItem="irz-fE-Bl1" secondAttribute="leading" id="SDk-5H-X8P"/>
                             <constraint firstAttribute="trailing" secondItem="L9E-f5-RTc" secondAttribute="trailing" constant="44" id="ZZD-JD-iev"/>
-                            <constraint firstItem="L9E-f5-RTc" firstAttribute="top" secondItem="JPa-iJ-sTl" secondAttribute="bottom" constant="44" id="an8-hL-XoT"/>
+                            <constraint firstItem="L9E-f5-RTc" firstAttribute="top" secondItem="JPa-iJ-sTl" secondAttribute="bottom" constant="20" id="an8-hL-XoT"/>
                             <constraint firstAttribute="trailing" secondItem="oEK-b7-uu2" secondAttribute="trailing" id="cy8-Qt-KP3"/>
                             <constraint firstItem="L9E-f5-RTc" firstAttribute="leading" secondItem="irz-fE-Bl1" secondAttribute="leading" constant="44" id="gqO-N9-osa"/>
                             <constraint firstItem="PWH-NR-UkA" firstAttribute="width" secondItem="irz-fE-Bl1" secondAttribute="width" multiplier="5:7" id="mVb-jF-S4z"/>
                             <constraint firstItem="PWH-NR-UkA" firstAttribute="top" secondItem="JPa-iJ-sTl" secondAttribute="bottom" constant="64" id="qIZ-jR-Ca7"/>
                         </constraints>
+                        <connections>
+                            <outlet property="scanArea" destination="PWH-NR-UkA" id="Ep4-kz-A6l"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="bottomConstraint" destination="Aig-Ng-3uO" id="n1Q-FS-Qog"/>
+                        <outlet property="indicator" destination="puz-WI-3Ak" id="Hoa-kV-ILm"/>
                         <outlet property="scanView" destination="PWH-NR-UkA" id="iQx-DY-Skq"/>
                         <outlet property="tipLable" destination="L9E-f5-RTc" id="PkD-cs-T5P"/>
                         <outlet property="toolTipLabel" destination="WYL-tq-9Nj" id="apJ-hg-WQG"/>
@@ -168,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXP-gK-NOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316.5" y="-40.999999999999993"/>
+            <point key="canvasLocation" x="316.5" y="-41"/>
         </scene>
     </scenes>
 </document>

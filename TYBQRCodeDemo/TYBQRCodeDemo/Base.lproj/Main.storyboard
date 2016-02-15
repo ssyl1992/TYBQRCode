@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vlW-Wj-1Do">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vlW-Wj-1Do">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5es-L2-9KC">
-                                <rect key="frame" x="180" y="108" width="240" height="240"/>
+                                <rect key="frame" x="170" y="108" width="260" height="260"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="L7I-rL-3Hw"/>
-                                    <constraint firstAttribute="height" constant="240" id="rrr-hr-HxO"/>
+                                    <constraint firstAttribute="width" constant="260" id="L7I-rL-3Hw"/>
+                                    <constraint firstAttribute="height" constant="260" id="rrr-hr-HxO"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aK5-tA-hQH">
-                                <rect key="frame" x="263" y="358" width="75" height="30"/>
+                                <rect key="frame" x="263" y="378" width="75" height="30"/>
                                 <state key="normal" title="扫描二维码"/>
                                 <connections>
                                     <action selector="scan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gMH-KS-7ks"/>

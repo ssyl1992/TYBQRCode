@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145182361C718E7800308B23 /* TYBQRSCanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 145182351C718E7800308B23 /* TYBQRSCanView.m */; };
 		14EA27A61C4B25D900B500C0 /* TYBQRScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14EA27A51C4B25D900B500C0 /* TYBQRScan.storyboard */; };
 		B544108B1C4CA4C900A4259D /* TYBQRScanToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = B544108A1C4CA4C900A4259D /* TYBQRScanToolView.m */; };
 		B5B449F21C48D70E002E7881 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B449F11C48D70E002E7881 /* main.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		145182341C718E7800308B23 /* TYBQRSCanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBQRSCanView.h; sourceTree = "<group>"; };
+		145182351C718E7800308B23 /* TYBQRSCanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBQRSCanView.m; sourceTree = "<group>"; };
 		14EA27A51C4B25D900B500C0 /* TYBQRScan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TYBQRScan.storyboard; sourceTree = "<group>"; };
 		B54410891C4CA4C900A4259D /* TYBQRScanToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBQRScanToolView.h; sourceTree = "<group>"; };
 		B544108A1C4CA4C900A4259D /* TYBQRScanToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBQRScanToolView.m; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				B5B44A091C48D751002E7881 /* TYBQRCodeCreater.m */,
 				B5B44A0D1C48E9B2002E7881 /* TYBQRScanViewController.h */,
 				B5B44A0E1C48E9B2002E7881 /* TYBQRScanViewController.m */,
+				145182341C718E7800308B23 /* TYBQRSCanView.h */,
+				145182351C718E7800308B23 /* TYBQRSCanView.m */,
 				14EA27A51C4B25D900B500C0 /* TYBQRScan.storyboard */,
 				B54410891C4CA4C900A4259D /* TYBQRScanToolView.h */,
 				B544108A1C4CA4C900A4259D /* TYBQRScanToolView.m */,
@@ -137,7 +142,7 @@
 				TargetAttributes = {
 					B5B449EC1C48D70E002E7881 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 7M8VR4YC8K;
+						DevelopmentTeam = 23M4K6PPH6;
 					};
 				};
 			};
@@ -180,6 +185,7 @@
 			files = (
 				B5B44A0A1C48D751002E7881 /* TYBQRCodeCreater.m in Sources */,
 				B5B449F81C48D70E002E7881 /* ViewController.m in Sources */,
+				145182361C718E7800308B23 /* TYBQRSCanView.m in Sources */,
 				B544108B1C4CA4C900A4259D /* TYBQRScanToolView.m in Sources */,
 				B5B449F51C48D70E002E7881 /* AppDelegate.m in Sources */,
 				B5B449F21C48D70E002E7881 /* main.m in Sources */,
@@ -300,7 +306,7 @@
 				INFOPLIST_FILE = TYBQRCodeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dansltech.www.qrcode;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dansltech.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -315,7 +321,7 @@
 				INFOPLIST_FILE = TYBQRCodeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dansltech.www.qrcode;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dansltech.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
