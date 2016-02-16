@@ -64,9 +64,6 @@
                                             <constraint firstAttribute="height" constant="24" id="YgX-oc-L9M"/>
                                             <constraint firstAttribute="width" constant="5" id="jlS-T9-mfo"/>
                                         </constraints>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="261" width="5" height="24"/>
-                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTw-wR-Nq6" userLabel="leftBotH">
                                         <rect key="frame" x="5" y="423" width="19" height="5"/>
@@ -75,9 +72,6 @@
                                             <constraint firstAttribute="width" constant="19" id="ZBI-IX-D2q"/>
                                             <constraint firstAttribute="height" constant="5" id="vST-JD-ArJ"/>
                                         </constraints>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="5" y="280" width="19" height="5"/>
-                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8X-a0-BVI" userLabel="rightBotV">
                                         <rect key="frame" x="424" y="404" width="5" height="24"/>
@@ -86,9 +80,6 @@
                                             <constraint firstAttribute="height" constant="24" id="3Bw-Kc-RNJ"/>
                                             <constraint firstAttribute="width" constant="5" id="fOH-aI-plh"/>
                                         </constraints>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="281" y="261" width="5" height="24"/>
-                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-fq-kaB" userLabel="rightBotH">
                                         <rect key="frame" x="405" y="423.5" width="19" height="5"/>
@@ -97,9 +88,6 @@
                                             <constraint firstAttribute="width" constant="19" id="CwU-4Y-9Pf"/>
                                             <constraint firstAttribute="height" constant="5" id="br5-Zy-Hu5"/>
                                         </constraints>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="262" y="280" width="19" height="5"/>
-                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -143,7 +131,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请将方框对准二维码" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9E-f5-RTc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="请将方框对准二维码" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9E-f5-RTc">
                                 <rect key="frame" x="44" y="64" width="512" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5jz-Mz-XiF"/>

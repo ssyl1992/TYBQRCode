@@ -271,10 +271,9 @@
         // 设置遮罩，非扫描区域模糊
         [self setFilterOnView:view];
        
-        
-        
+    
         if (self.scanAnimation) {
-            [self.scanView.layer addSublayer:self.animationView.layer];
+            [self.scanView addSubview:self.animationView];
             [self startAnimation];
         }else{
             [self stopAnimation];
@@ -293,7 +292,7 @@
     
     // 扫描成功后关闭管道
     if (metadataObjects.count > 0) {
-        [_session startRunning];
+        [_session stopRunning];
         [_layer removeFromSuperlayer];
         [self stopAnimation];
             AVMetadataMachineReadableCodeObject *obj = metadataObjects.firstObject;
@@ -301,7 +300,10 @@
         [self.delegate scanView:self endScanWithResult:obj.stringValue];
     }else{
         // 扫描失败
-        [self.delegate scanViewDidFailed:self];
+        if ([self.delegate respondsToSelector:@selector(scanViewDidFailed:)]) {
+            [self.delegate scanViewDidFailed:self];
+        }
+        
     }
 }
 
