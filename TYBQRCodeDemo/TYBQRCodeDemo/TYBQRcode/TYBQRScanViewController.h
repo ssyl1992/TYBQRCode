@@ -12,7 +12,7 @@
 @class TYBQRScanViewController;
 
 @protocol TYBQRScanViewControllerDelegate <NSObject>
-
+@optional
 - (void)scanView:(TYBQRScanViewController *) scanViewController endScanWithResult:(NSString *)result;
 - (void)scanViewDidFailed:(TYBQRScanViewController *) scanViewController ;
 
@@ -69,7 +69,7 @@
 - (void)systemSound;
 
 // 初始化
-- (instancetype)init;
+//- (instancetype)init;
 
 // 开启扫描动画
 - (void)startAnimation;

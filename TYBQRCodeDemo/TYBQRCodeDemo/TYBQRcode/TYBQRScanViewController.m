@@ -10,9 +10,6 @@
 #import <Photos/Photos.h>
 #import "TYBQRScanToolView.h"
 
-
-
-
 @interface TYBQRScanViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *angelViews;
@@ -54,79 +51,45 @@
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
-
 @property (nonatomic, strong) UIView *animationView;
-
-
 
 @end
 
 @implementation TYBQRScanViewController
 
-//- (void)setScanAnimation:(BOOL)scanAnimation {
-//    _scanAnimation = scanAnimation;
-//    if (self.scanAnimation) {
-//        [self startAnimation];
-//    }else{
-//        [self stopAnimation];
-//    }
-//    
-//}
-
 + (instancetype)scanView{
-    
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"TYBQRScan" bundle:nil];
-    TYBQRScanViewController *scanVc = (TYBQRScanViewController *)[story instantiateViewControllerWithIdentifier:@"ScanView"];
+    TYBQRScanViewController *scanVc = (TYBQRScanViewController *)[[UIStoryboard storyboardWithName:@"TYBQRScan" bundle:nil] instantiateViewControllerWithIdentifier:@"ScanView"];
     if (scanVc) {
         scanVc.scanAnimation = YES;
     }
     
-    
     return scanVc;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+
+    [self setDownGesture];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self performSelector:@selector(startScan) withObject:nil afterDelay:0];
+    [self setTheme];
+}
 
 - (UIView *)animationView {
     if(_animationView == nil) {
         _animationView = [[UIView alloc] init];
         _animationView.backgroundColor = [UIColor blueColor];
-        _animationView.frame = CGRectMake(6, 6, self.scanView.frame.size.width-12, 2);
+        _animationView.frame = CGRectMake(6, 6, self.scanView.frame.size.width - 12, 2);
     }
     return _animationView;
-}
-
-
-
-
-//- (instancetype)init{
-//    UIStoryboard *story = [UIStoryboard storyboardWithName:@"TYBQRScan" bundle:nil];
-//    if ((self = (TYBQRScanViewController *)[story instantiateViewControllerWithIdentifier:@"ScanView"])) {
-//        self.scanAnimation = YES;
-//       
-//    }
-//    return self;
-//}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self performSelector:@selector(startScan) withObject:nil afterDelay:0];
-//  [self startScan];
-    [self setTheme];
-    
-
-    // 设置代理
-//    self.toolView.delegate = self;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-        
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
-
-    [self setDownGesture];
-
 }
 
 #pragma mark -- 设置初始化显示的样式
@@ -158,7 +121,6 @@
 }
 
 
-
 #pragma mark -- 设置手势
 - (void)setDownGesture{
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(changeConstraint:)];
@@ -187,7 +149,6 @@
             self.toolTipLabel.text = @"向下滑动隐藏工具栏";
         }];
     }
-    
 }
 
 #pragma mark -- 设置扫描成功的提示
@@ -208,8 +169,6 @@
     self.tipLable.text = tips;
 }
 
-
-
 // 获取扫描权限
 - (BOOL)getCameraPermisson {
     BOOL isAllowed = YES;
@@ -227,6 +186,8 @@
     if ([self getCameraPermisson]) {
         // 1 获取设备摄像头对象
         AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+//        [device lockForConfiguration:nil];
+//        device.torchMode = AVCaptureTorchModeOn;
         NSError *error = nil;
         // 2 从摄像头获取输入流
         AVCaptureDeviceInput *input  = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
@@ -249,19 +210,14 @@
         // 设置输出流的品质
         [_session setSessionPreset:AVCaptureSessionPresetHigh];
         
-    
-        
         // 设置扫描的数据类型 :二维码(默认)
         output.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
-        
         
         // 5 把管道的图像读出来
         _layer = [AVCaptureVideoPreviewLayer layerWithSession:_session];
         _layer.frame = self.view.frame;
         _layer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 
-        
-        
         UIView *view = [[UIView alloc]initWithFrame:self.view.frame];
 
         [view.layer addSublayer:_layer];
@@ -296,14 +252,13 @@
         [_layer removeFromSuperlayer];
         [self stopAnimation];
             AVMetadataMachineReadableCodeObject *obj = metadataObjects.firstObject;
-            NSLog(@"扫描到的二维码是:%@",obj.stringValue);
+//            NSLog(@"扫描到的二维码是:%@",obj.stringValue);
         [self.delegate scanView:self endScanWithResult:obj.stringValue];
     }else{
         // 扫描失败
         if ([self.delegate respondsToSelector:@selector(scanViewDidFailed:)]) {
             [self.delegate scanViewDidFailed:self];
         }
-        
     }
 }
 
@@ -311,7 +266,7 @@
 - (void)startAnimation{
     [self.scanView addSubview:self.animationView];
     [UIView animateWithDuration:3 delay:0 options:UIViewAnimationOptionRepeat animations:^{
-        self.animationView.frame = CGRectMake(6, self.scanView.frame.size.height-14, self.scanView.frame.size.width-12, 2);
+        self.animationView.frame = CGRectMake(6, self.scanView.frame.size.height - 14, self.scanView.frame.size.width - 12, 2);
     } completion:nil];
 }
 

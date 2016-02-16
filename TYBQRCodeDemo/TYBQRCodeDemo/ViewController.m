@@ -30,21 +30,21 @@
     _scanVc.delegate = self;
 //    _scanVc.scanAnimation = YES;
     _scanVc.scanAngelColor = [UIColor redColor];
-    _scanVc.toolViewBgColor = [UIColor clearColor];
-    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn2 setTitle:@"333" forState:UIControlStateNormal];
-    [btn2 setBackgroundColor:[UIColor purpleColor]];
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn setTitle:@"111" forState:UIControlStateNormal];
-    [btn setBackgroundColor:[UIColor redColor]];
-    
-    
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn1 setTitle:@"222" forState:UIControlStateNormal];
-    [btn1 setBackgroundColor:[UIColor blueColor]];
-    
-    _scanVc.toolItems = @[btn2,btn,btn1];
+//    _scanVc.toolViewBgColor = [UIColor clearColor];
+//    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [btn2 setTitle:@"333" forState:UIControlStateNormal];
+//    [btn2 setBackgroundColor:[UIColor purpleColor]];
+//    
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [btn setTitle:@"111" forState:UIControlStateNormal];
+//    [btn setBackgroundColor:[UIColor redColor]];
+//    
+//    
+//    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [btn1 setTitle:@"222" forState:UIControlStateNormal];
+//    [btn1 setBackgroundColor:[UIColor blueColor]];
+//    
+//    _scanVc.toolItems = @[btn2,btn,btn1];
     
     [self.navigationController pushViewController:_scanVc animated:YES];
 }
