@@ -52,6 +52,9 @@
  */
 @property(nonatomic, assign) BOOL scanAnimation;
 
+@property(nonatomic, strong) UIColor *animationColor;
+@property (nonatomic, strong) UIColor *filterColor;
+
 /**
  * 初始化方式
  */

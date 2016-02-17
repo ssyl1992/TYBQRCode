@@ -51,7 +51,8 @@
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
-@property (nonatomic, strong) UIView *animationView;
+@property (nonatomic, strong) IBOutlet UIView *animationView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *angleWidth;
 
 @end
 
@@ -83,14 +84,14 @@
     [self setTheme];
 }
 
-- (UIView *)animationView {
-    if(_animationView == nil) {
-        _animationView = [[UIView alloc] init];
-        _animationView.backgroundColor = [UIColor blueColor];
-        _animationView.frame = CGRectMake(6, 6, self.scanView.frame.size.width - 12, 2);
-    }
-    return _animationView;
-}
+//- (UIView *)animationView {
+//    if(_animationView == nil) {
+//        _animationView = [[UIView alloc] init];
+//        _animationView.backgroundColor = [UIColor blueColor];
+//        _animationView.frame = CGRectMake(6, 6, self.scanView.frame.size.width - 12, 2);
+//    }
+//    return _animationView;
+//}
 
 #pragma mark -- 设置初始化显示的样式
 - (void)setTheme{
@@ -118,6 +119,7 @@
         self.toolView.hidden = YES;
         self.toolTipLabel.hidden = YES;
     }
+    self.animationView.backgroundColor = self.animationColor?self.animationColor:[UIColor blueColor];
 }
 
 
@@ -229,7 +231,7 @@
        
     
         if (self.scanAnimation) {
-            [self.scanView addSubview:self.animationView];
+//            [self.scanView addSubview:self.animationView];
             [self startAnimation];
         }else{
             [self stopAnimation];
@@ -264,24 +266,25 @@
 
 #pragma mark -- 开启扫描动画
 - (void)startAnimation{
-    [self.scanView addSubview:self.animationView];
+    self.animationView.hidden = NO;
     [UIView animateWithDuration:3 delay:0 options:UIViewAnimationOptionRepeat animations:^{
-        self.animationView.frame = CGRectMake(6, self.scanView.frame.size.height - 14, self.scanView.frame.size.width - 12, 2);
+        self.animationView.frame = CGRectMake(self.angleWidth.constant + 1, self.scanView.frame.size.height - (self.angleWidth.constant+2) * 2, self.scanView.frame.size.width - (self.angleWidth.constant+1) * 2, 2);
     } completion:nil];
 }
 
 - (void)stopAnimation {
-    [self.animationView removeFromSuperview];
+    self.animationView.hidden = YES;
+//    [self.animationView removeFromSuperview];
 }
 
 - (void)setFilterOnView:(UIView *)view {
     
     UIColor *filterColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:0.6];
     //
-    CGFloat scanAreaTop = self.scanView.frame.origin.y+5;
-    CGFloat scanAreaBottom = self.scanView.frame.origin.y + self.scanView.frame.size.height-5;
-    CGFloat scanAreaLeft = self.scanView.frame.origin.x+5;
-    CGFloat scanAreaRight = self.scanView.frame.origin.x + self.scanView.frame.size.width-5;
+    CGFloat scanAreaTop = self.scanView.frame.origin.y+ self.angleWidth.constant;
+    CGFloat scanAreaBottom = self.scanView.frame.origin.y + self.scanView.frame.size.height - self.angleWidth.constant;
+    CGFloat scanAreaLeft = self.scanView.frame.origin.x + self.angleWidth.constant;
+    CGFloat scanAreaRight = self.scanView.frame.origin.x + self.scanView.frame.size.width - self.angleWidth.constant;
     CGFloat screenWidth = self.view.frame.size.width;
     CGFloat screenHeight = self.view.frame.size.height;
     
@@ -294,13 +297,13 @@
     bottomView.backgroundColor = filterColor;
     [self.view insertSubview:bottomView aboveSubview:view];
     
-    UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, scanAreaTop, scanAreaLeft, self.scanView.frame.size.height-10)];
-    NSLog(@"%@",NSStringFromCGRect(leftView.frame));
+    UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, scanAreaTop, scanAreaLeft, self.scanView.frame.size.height - self.angleWidth.constant * 2)];
+//    NSLog(@"%@",NSStringFromCGRect(leftView.frame));
     leftView.backgroundColor = filterColor;
     [self.view insertSubview:leftView aboveSubview:view];
     
-    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(scanAreaRight, scanAreaTop, screenWidth-scanAreaRight, self.scanView.frame.size.height-10)];
-    NSLog(@"%@",NSStringFromCGRect(rightView.frame));
+    UIView *rightView = [[UIView alloc]initWithFrame:CGRectMake(scanAreaRight, scanAreaTop, screenWidth-scanAreaRight, self.scanView.frame.size.height- self.angleWidth.constant * 2)];
+//    NSLog(@"%@",NSStringFromCGRect(rightView.frame));
     rightView.backgroundColor = filterColor;
     [self.view insertSubview:rightView aboveSubview:view];
 }
