@@ -265,6 +265,7 @@
     // 扫描成功后关闭管道
     if (metadataObjects.count > 0) {
         [_session stopRunning];
+        _device.torchMode = AVCaptureTorchModeOff;
         [_layer removeFromSuperlayer];
         [self stopAnimation];
             AVMetadataMachineReadableCodeObject *obj = metadataObjects.firstObject;
