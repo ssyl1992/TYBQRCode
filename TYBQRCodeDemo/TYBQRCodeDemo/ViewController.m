@@ -31,29 +31,29 @@
 //    _scanVc.scanAnimation = YES;
     _scanVc.scanAngelColor = [UIColor redColor];
     _scanVc.toolViewBgColor = [UIColor clearColor];
-    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn2 setTitle:@"灯光开关" forState:UIControlStateNormal];
-    [btn2 setBackgroundColor:[UIColor purpleColor]];
-    [btn2 addTarget:self action:@selector(torch:) forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [btn2 setTitle:@"灯光开关" forState:UIControlStateNormal];
+//    [btn2 setBackgroundColor:[UIColor purpleColor]];
+//    [btn2 addTarget:self action:@selector(torch:) forControlEvents:UIControlEventTouchUpInside];
+////
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [btn setTitle:@"111" forState:UIControlStateNormal];
+//    [btn setBackgroundColor:[UIColor redColor]];
+//    
+//    
+//    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [btn1 setTitle:@"222" forState:UIControlStateNormal];
+//    [btn1 setBackgroundColor:[UIColor blueColor]];
 //
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn setTitle:@"111" forState:UIControlStateNormal];
-    [btn setBackgroundColor:[UIColor redColor]];
-    
-    
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn1 setTitle:@"222" forState:UIControlStateNormal];
-    [btn1 setBackgroundColor:[UIColor blueColor]];
-//
-    _scanVc.toolItems = @[btn2];
+//    _scanVc.toolItems = @[btn2];
     
     [self.navigationController pushViewController:_scanVc animated:YES];
 }
 
-- (void)torch:(id)sender {
-    [_scanVc toggleTorch];
-    
-}
+//- (void)torch:(id)sender {
+//    [_scanVc toggleTorch];
+//    
+//}
 - (void)scanView:(TYBQRScanViewController *)scanViewController endScanWithResult:(NSString *)result{
     [self.navigationController popViewControllerAnimated:YES];
   

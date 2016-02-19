@@ -193,8 +193,11 @@
         self.device = device;
         
         // 自动开启灯光
-        [device lockForConfiguration:nil];
-        device.torchMode = AVCaptureTorchModeAuto;
+        
+            [device lockForConfiguration:nil];
+            device.torchMode = AVCaptureTorchModeAuto;
+   
+
         NSError *error = nil;
         // 2 从摄像头获取输入流
         AVCaptureDeviceInput *input  = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
@@ -213,6 +216,12 @@
         // 4 设置输入输出管道
         _session = [[AVCaptureSession alloc]init];
         [_session addInput:input];
+        if ([device isTorchModeSupported:AVCaptureTorchModeAuto]) {
+            AVCaptureOutput *videoOutput = [[AVCaptureVideoDataOutput alloc]init];
+            [_session addOutput:videoOutput];
+           
+        }
+        
         [_session addOutput:output];
         // 设置输出流的品质
         [_session setSessionPreset:AVCaptureSessionPresetHigh];
@@ -314,11 +323,14 @@
 }
 
 - (void)toggleTorch {
-    if (_device.torchActive) {
-        _device.torchMode = AVCaptureTorchModeOff;
-    }else {
-        _device.torchMode = AVCaptureTorchModeOn;
+    if ([_device hasTorch]) {
+        if (_device.torchActive) {
+            _device.torchMode = AVCaptureTorchModeOff;
+        }else {
+            _device.torchMode = AVCaptureTorchModeOn;
+        }
     }
+ 
 }
 
 @end
