@@ -83,4 +83,8 @@
 // 默认是开启的，不需手动调用，提供给扫描失败时，用户需要重新开始扫描使用
 - (void)startScan;
 
+- (void)openTorch;
+- (void)closeTorch;
+- (void)toggleTorch;
+
 @end

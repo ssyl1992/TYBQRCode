@@ -54,6 +54,8 @@
 @property (nonatomic, strong) IBOutlet UIView *animationView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *angleWidth;
 
+@property (nonatomic, strong) AVCaptureDevice *device;
+
 @end
 
 @implementation TYBQRScanViewController
@@ -188,8 +190,11 @@
     if ([self getCameraPermisson]) {
         // 1 获取设备摄像头对象
         AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-//        [device lockForConfiguration:nil];
-//        device.torchMode = AVCaptureTorchModeOn;
+        self.device = device;
+        
+        // 自动开启灯光
+        [device lockForConfiguration:nil];
+        device.torchMode = AVCaptureTorchModeAuto;
         NSError *error = nil;
         // 2 从摄像头获取输入流
         AVCaptureDeviceInput *input  = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
@@ -306,6 +311,14 @@
 //    NSLog(@"%@",NSStringFromCGRect(rightView.frame));
     rightView.backgroundColor = filterColor;
     [self.view insertSubview:rightView aboveSubview:view];
+}
+
+- (void)toggleTorch {
+    if (_device.torchActive) {
+        _device.torchMode = AVCaptureTorchModeOff;
+    }else {
+        _device.torchMode = AVCaptureTorchModeOn;
+    }
 }
 
 @end
