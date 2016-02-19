@@ -85,15 +85,12 @@
     [self performSelector:@selector(startScan) withObject:nil afterDelay:0];
     [self setTheme];
 }
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    _device.torchMode = AVCaptureTorchModeOff;
+}
 
-//- (UIView *)animationView {
-//    if(_animationView == nil) {
-//        _animationView = [[UIView alloc] init];
-//        _animationView.backgroundColor = [UIColor blueColor];
-//        _animationView.frame = CGRectMake(6, 6, self.scanView.frame.size.width - 12, 2);
-//    }
-//    return _animationView;
-//}
+
 
 #pragma mark -- 设置初始化显示的样式
 - (void)setTheme{
