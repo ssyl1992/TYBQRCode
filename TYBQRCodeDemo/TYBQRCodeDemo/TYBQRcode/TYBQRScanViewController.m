@@ -73,6 +73,7 @@
     NSLog(@"%s",__func__);
     [super viewDidLoad];
     [self setDownGesture];
+    [self setTheme];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -82,16 +83,18 @@
      self.scanAnimation = YES;
     [self performSelector:@selector(startScan) withObject:nil afterDelay:0];
    
-    [self setTheme];
+    
 }
 - (void)viewWillDisappear:(BOOL)animated {
     NSLog(@"%s",__func__);
     [super viewWillDisappear:animated];
+    [self endScan];
     _device.torchMode = AVCaptureTorchModeOff;
 }
 
 - (void)dealloc {
     NSLog(@"dealloc");
+    
 }
 
 #pragma mark -- 设置初始化显示的样式
@@ -262,13 +265,8 @@
     
     // 扫描成功后关闭管道
     if (metadataObjects.count > 0) {
-        [_session stopRunning];
-        _device.torchMode = AVCaptureTorchModeOff;
-        [_layer removeFromSuperlayer];
-        
-        [self.layerView removeFromSuperview];
-    
-        [self stopAnimation];
+        // 结束扫描
+        [self endScan];
             AVMetadataMachineReadableCodeObject *obj = metadataObjects.firstObject;
 //            NSLog(@"扫描到的二维码是:%@",obj.stringValue);
         [self.delegate scanView:self endScanWithResult:obj.stringValue];
@@ -279,6 +277,14 @@
         }
     }
 }
+- (void)endScan {
+    _device.torchMode = AVCaptureTorchModeOff;
+    [_session stopRunning];
+    [_layer removeFromSuperlayer];
+    [self.layerView removeFromSuperview];
+    [self stopAnimation];
+}
+
 
 #pragma mark -- 开启扫描动画
 - (void)startAnimation{
