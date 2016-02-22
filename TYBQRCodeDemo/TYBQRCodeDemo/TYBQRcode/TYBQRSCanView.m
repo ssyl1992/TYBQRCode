@@ -1,30 +1,18 @@
 //
-//  TYBQRSCanView.m
+//  TYBQRScanView.m
 //  TYBQRCodeDemo
 //
-//  Created by 滕跃兵 on 16/2/15.
+//  Created by 滕跃兵 on 16/2/22.
 //  Copyright © 2016年 滕跃兵. All rights reserved.
 //
 
-#import "TYBQRSCanView.h"
+#import "TYBQRScanView.h"
 
-
-@interface TYBQRSCanView()
-
-@property (weak, nonatomic) IBOutlet UIView *scanArea;
-
-@end
-
-@implementation TYBQRSCanView
+@implementation TYBQRScanView
 
 
 - (void)drawRect:(CGRect)rect {
-
-    
-   
-    
-
-    
+ 
 }
 
 

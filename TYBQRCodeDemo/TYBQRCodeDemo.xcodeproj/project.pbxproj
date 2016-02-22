@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		145182361C718E7800308B23 /* TYBQRSCanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 145182351C718E7800308B23 /* TYBQRSCanView.m */; };
-		14EA27A61C4B25D900B500C0 /* TYBQRScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14EA27A51C4B25D900B500C0 /* TYBQRScan.storyboard */; };
-		B544108B1C4CA4C900A4259D /* TYBQRScanToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = B544108A1C4CA4C900A4259D /* TYBQRScanToolView.m */; };
+		14C789581C7B026C006BD106 /* TYBQRCodeCreater.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C789521C7B026C006BD106 /* TYBQRCodeCreater.m */; };
+		14C789591C7B026C006BD106 /* TYBQRScan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C789531C7B026C006BD106 /* TYBQRScan.storyboard */; };
+		14C7895A1C7B026C006BD106 /* TYBQRScanToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C789551C7B026C006BD106 /* TYBQRScanToolView.m */; };
+		14C7895B1C7B026C006BD106 /* TYBQRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C789571C7B026C006BD106 /* TYBQRScanViewController.m */; };
+		14C7895E1C7B0290006BD106 /* TYBQRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C7895D1C7B0290006BD106 /* TYBQRScanView.m */; };
 		B5B449F21C48D70E002E7881 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B449F11C48D70E002E7881 /* main.m */; };
 		B5B449F51C48D70E002E7881 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B449F41C48D70E002E7881 /* AppDelegate.m */; };
 		B5B449F81C48D70E002E7881 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B449F71C48D70E002E7881 /* ViewController.m */; };
 		B5B449FB1C48D70E002E7881 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5B449F91C48D70E002E7881 /* Main.storyboard */; };
 		B5B449FD1C48D70E002E7881 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5B449FC1C48D70E002E7881 /* Assets.xcassets */; };
 		B5B44A001C48D70E002E7881 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5B449FE1C48D70E002E7881 /* LaunchScreen.storyboard */; };
-		B5B44A0A1C48D751002E7881 /* TYBQRCodeCreater.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B44A091C48D751002E7881 /* TYBQRCodeCreater.m */; };
-		B5B44A0F1C48E9B2002E7881 /* TYBQRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B44A0E1C48E9B2002E7881 /* TYBQRScanViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		145182341C718E7800308B23 /* TYBQRSCanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBQRSCanView.h; sourceTree = "<group>"; };
-		145182351C718E7800308B23 /* TYBQRSCanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBQRSCanView.m; sourceTree = "<group>"; };
-		14EA27A51C4B25D900B500C0 /* TYBQRScan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TYBQRScan.storyboard; sourceTree = "<group>"; };
-		B54410891C4CA4C900A4259D /* TYBQRScanToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBQRScanToolView.h; sourceTree = "<group>"; };
-		B544108A1C4CA4C900A4259D /* TYBQRScanToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBQRScanToolView.m; sourceTree = "<group>"; };
+		14C789511C7B026C006BD106 /* TYBQRCodeCreater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBQRCodeCreater.h; sourceTree = "<group>"; };
+		14C789521C7B026C006BD106 /* TYBQRCodeCreater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBQRCodeCreater.m; sourceTree = "<group>"; };
+		14C789531C7B026C006BD106 /* TYBQRScan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TYBQRScan.storyboard; sourceTree = "<group>"; };
+		14C789541C7B026C006BD106 /* TYBQRScanToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBQRScanToolView.h; sourceTree = "<group>"; };
+		14C789551C7B026C006BD106 /* TYBQRScanToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBQRScanToolView.m; sourceTree = "<group>"; };
+		14C789561C7B026C006BD106 /* TYBQRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBQRScanViewController.h; sourceTree = "<group>"; };
+		14C789571C7B026C006BD106 /* TYBQRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBQRScanViewController.m; sourceTree = "<group>"; };
+		14C7895C1C7B0290006BD106 /* TYBQRScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBQRScanView.h; sourceTree = "<group>"; };
+		14C7895D1C7B0290006BD106 /* TYBQRScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBQRScanView.m; sourceTree = "<group>"; };
 		B5B449ED1C48D70E002E7881 /* TYBQRCodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TYBQRCodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B449F11C48D70E002E7881 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B5B449F31C48D70E002E7881 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,10 +40,6 @@
 		B5B449FC1C48D70E002E7881 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5B449FF1C48D70E002E7881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5B44A011C48D70E002E7881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B5B44A081C48D751002E7881 /* TYBQRCodeCreater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBQRCodeCreater.h; sourceTree = "<group>"; };
-		B5B44A091C48D751002E7881 /* TYBQRCodeCreater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBQRCodeCreater.m; sourceTree = "<group>"; };
-		B5B44A0D1C48E9B2002E7881 /* TYBQRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBQRScanViewController.h; sourceTree = "<group>"; };
-		B5B44A0E1C48E9B2002E7881 /* TYBQRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBQRScanViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +53,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14C789501C7B026C006BD106 /* TYBQRcode */ = {
+			isa = PBXGroup;
+			children = (
+				14C789511C7B026C006BD106 /* TYBQRCodeCreater.h */,
+				14C789521C7B026C006BD106 /* TYBQRCodeCreater.m */,
+				14C789531C7B026C006BD106 /* TYBQRScan.storyboard */,
+				14C789541C7B026C006BD106 /* TYBQRScanToolView.h */,
+				14C789551C7B026C006BD106 /* TYBQRScanToolView.m */,
+				14C7895C1C7B0290006BD106 /* TYBQRScanView.h */,
+				14C7895D1C7B0290006BD106 /* TYBQRScanView.m */,
+				14C789561C7B026C006BD106 /* TYBQRScanViewController.h */,
+				14C789571C7B026C006BD106 /* TYBQRScanViewController.m */,
+			);
+			path = TYBQRcode;
+			sourceTree = "<group>";
+		};
 		B5B449E41C48D70E002E7881 = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +88,7 @@
 		B5B449EF1C48D70E002E7881 /* TYBQRCodeDemo */ = {
 			isa = PBXGroup;
 			children = (
-				B5B44A071C48D712002E7881 /* TYBQRCode */,
+				14C789501C7B026C006BD106 /* TYBQRcode */,
 				B5B449F31C48D70E002E7881 /* AppDelegate.h */,
 				B5B449F41C48D70E002E7881 /* AppDelegate.m */,
 				B5B449F61C48D70E002E7881 /* ViewController.h */,
@@ -92,23 +108,6 @@
 				B5B449F11C48D70E002E7881 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B5B44A071C48D712002E7881 /* TYBQRCode */ = {
-			isa = PBXGroup;
-			children = (
-				B5B44A081C48D751002E7881 /* TYBQRCodeCreater.h */,
-				B5B44A091C48D751002E7881 /* TYBQRCodeCreater.m */,
-				B5B44A0D1C48E9B2002E7881 /* TYBQRScanViewController.h */,
-				B5B44A0E1C48E9B2002E7881 /* TYBQRScanViewController.m */,
-				145182341C718E7800308B23 /* TYBQRSCanView.h */,
-				145182351C718E7800308B23 /* TYBQRSCanView.m */,
-				14EA27A51C4B25D900B500C0 /* TYBQRScan.storyboard */,
-				B54410891C4CA4C900A4259D /* TYBQRScanToolView.h */,
-				B544108A1C4CA4C900A4259D /* TYBQRScanToolView.m */,
-			);
-			name = TYBQRCode;
-			path = TYBQRcode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +170,7 @@
 			files = (
 				B5B44A001C48D70E002E7881 /* LaunchScreen.storyboard in Resources */,
 				B5B449FD1C48D70E002E7881 /* Assets.xcassets in Resources */,
-				14EA27A61C4B25D900B500C0 /* TYBQRScan.storyboard in Resources */,
+				14C789591C7B026C006BD106 /* TYBQRScan.storyboard in Resources */,
 				B5B449FB1C48D70E002E7881 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,13 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5B44A0A1C48D751002E7881 /* TYBQRCodeCreater.m in Sources */,
+				14C7895A1C7B026C006BD106 /* TYBQRScanToolView.m in Sources */,
+				14C789581C7B026C006BD106 /* TYBQRCodeCreater.m in Sources */,
+				14C7895B1C7B026C006BD106 /* TYBQRScanViewController.m in Sources */,
 				B5B449F81C48D70E002E7881 /* ViewController.m in Sources */,
-				145182361C718E7800308B23 /* TYBQRSCanView.m in Sources */,
-				B544108B1C4CA4C900A4259D /* TYBQRScanToolView.m in Sources */,
 				B5B449F51C48D70E002E7881 /* AppDelegate.m in Sources */,
 				B5B449F21C48D70E002E7881 /* main.m in Sources */,
-				B5B44A0F1C48E9B2002E7881 /* TYBQRScanViewController.m in Sources */,
+				14C7895E1C7B0290006BD106 /* TYBQRScanView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,7 +305,7 @@
 				INFOPLIST_FILE = TYBQRCodeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dansltech.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dansltech.www.qr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -321,7 +320,7 @@
 				INFOPLIST_FILE = TYBQRCodeDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dansltech.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dansltech.www.qr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

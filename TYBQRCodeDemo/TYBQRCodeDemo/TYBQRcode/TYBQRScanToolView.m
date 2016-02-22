@@ -15,12 +15,7 @@
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder{
     if (self = [super initWithCoder:aDecoder]){
-//
-//        UIButton *flashBtn = [self buttonWithTitle:@"闪光灯" image:nil tag:ToolButtonTypeFlash];
-//        [self addSubview:flashBtn];
-//        
-//        UIButton *cancleBtn = [self buttonWithTitle:@"取消" image:nil tag:ToolButtonTypeCancle];
-//        [self addSubview:cancleBtn];
+
         
     }
     return self;

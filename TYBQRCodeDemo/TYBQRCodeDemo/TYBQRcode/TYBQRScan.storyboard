@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="top" id="JPa-iJ-sTl"/>
                         <viewControllerLayoutGuide type="bottom" id="bU7-fP-SjE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="irz-fE-Bl1" customClass="TYBQRSCanView">
+                    <view key="view" contentMode="scaleToFill" id="irz-fE-Bl1" customClass="TYBQRScanView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -164,10 +164,10 @@
                                         <exclude reference="GSd-uu-vyM"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="1JE-eN-fgo"/>
-                                        <exclude reference="6QL-JF-t7s"/>
                                         <exclude reference="Q11-aC-ClT"/>
                                         <exclude reference="SXk-rv-ITl"/>
+                                        <exclude reference="1JE-eN-fgo"/>
+                                        <exclude reference="6QL-JF-t7s"/>
                                         <exclude reference="A8c-Uy-hoo"/>
                                     </mask>
                                 </variation>
@@ -177,10 +177,10 @@
                                         <include reference="GSd-uu-vyM"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="1JE-eN-fgo"/>
-                                        <include reference="6QL-JF-t7s"/>
                                         <include reference="Q11-aC-ClT"/>
                                         <include reference="SXk-rv-ITl"/>
+                                        <include reference="1JE-eN-fgo"/>
+                                        <include reference="6QL-JF-t7s"/>
                                         <include reference="A8c-Uy-hoo"/>
                                     </mask>
                                 </variation>
@@ -199,9 +199,6 @@
                             <constraint firstItem="PWH-NR-UkA" firstAttribute="width" secondItem="irz-fE-Bl1" secondAttribute="width" multiplier="5:7" id="mVb-jF-S4z"/>
                             <constraint firstItem="PWH-NR-UkA" firstAttribute="top" secondItem="JPa-iJ-sTl" secondAttribute="bottom" constant="64" id="qIZ-jR-Ca7"/>
                         </constraints>
-                        <connections>
-                            <outlet property="scanArea" destination="PWH-NR-UkA" id="Ep4-kz-A6l"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="angleWidth" destination="b3G-BN-6qW" id="PGB-8S-LCv"/>
