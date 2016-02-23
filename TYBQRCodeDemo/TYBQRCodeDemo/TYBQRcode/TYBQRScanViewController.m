@@ -189,6 +189,7 @@
 // 开启扫描
 - (void)startScan {
     NSLog(@"%s",__func__);
+    [self.indicator startAnimating];
     // 取得权限,开始扫描
     if ([self getCameraPermisson]) {
         // 1 获取设备摄像头对象
