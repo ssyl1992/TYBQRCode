@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.imageView.image = [TYBQRCodeCreater createQRImage:[TYBQRCodeCreater createWithString:@"www.dansltech.com" qrColor:[UIColor blackColor] bgColor:[UIColor whiteColor] size:CGSizeMake(240, 240)] logoImage:[UIImage imageNamed:@"dsl"]];
+    self.imageView.image = [TYBQRCodeCreater createQRImage:[TYBQRCodeCreater createWithString:@"www.dansltech.com" qrColor:[UIColor blackColor] bgColor:[UIColor whiteColor] size:CGSizeMake(240, 240)] logoImage:[UIImage imageNamed:@"111"]];
     
 }
 

@@ -67,12 +67,15 @@
     // 设置logo的大小,logo默认是30x30
     CGRect logoRect = CGRectMake(qrImage.size.width/2 - qrImage.size.height * 0.1, qrImage.size.height/2 - qrImage.size.height * 0.1, qrImage.size.width * 0.2, qrImage.size.height * 0.2);
     
+    CGRect logoBgRect = CGRectMake(qrImage.size.width/2 - qrImage.size.height * 0.1 - 2, qrImage.size.height/2 - qrImage.size.height * 0.1 - 2, qrImage.size.width * 0.2 + 4, qrImage.size.height * 0.2 + 4);
+    
     // logo的背景区域
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:logoRect];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:logoBgRect];
     [[UIColor whiteColor] setFill];
     [path fill];
     
     CGFloat width = qrImage.size.width/49 * 5.5;
+    
     
     UIBezierPath *pathTopLeft = [UIBezierPath bezierPathWithRect:CGRectMake(width, width, width, width)];
     [[UIColor greenColor] setFill];
@@ -85,9 +88,6 @@
     UIBezierPath *pathBotLeft = [UIBezierPath bezierPathWithRect:CGRectMake(width, qrImage.size.height-2*width , width, width)];
     [[UIColor blueColor] setFill];
     [pathBotLeft fill];
-    
-    
-    
     
     // 再把logo画在背景区域上
     [logoImage drawInRect:logoRect];
