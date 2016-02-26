@@ -74,20 +74,21 @@
     [[UIColor whiteColor] setFill];
     [path fill];
     
-    CGFloat width = qrImage.size.width/49 * 5.5;
+//    CGFloat width = qrImage.size.width/49 * 5.5;
     
     
-    UIBezierPath *pathTopLeft = [UIBezierPath bezierPathWithRect:CGRectMake(width, width, width, width)];
-    [[UIColor greenColor] setFill];
-    [pathTopLeft fill];
+//    UIBezierPath *pathTopLeft = [UIBezierPath bezierPathWithRect:CGRectMake(width, width, width, width)];
+//    [[UIColor greenColor] setFill];
+//    [pathTopLeft fill];
+//    
+//    UIBezierPath *pathTopRight = [UIBezierPath bezierPathWithRect:CGRectMake(qrImage.size.width - 2 * width, width, width, width)];
+//    [[UIColor redColor] setFill];
+//    [pathTopRight fill];
+//    
+//    UIBezierPath *pathBotLeft = [UIBezierPath bezierPathWithRect:CGRectMake(width, qrImage.size.height-2*width , width, width)];
+//    [[UIColor blueColor] setFill];
+//    [pathBotLeft fill];
     
-    UIBezierPath *pathTopRight = [UIBezierPath bezierPathWithRect:CGRectMake(qrImage.size.width - 2 * width, width, width, width)];
-    [[UIColor redColor] setFill];
-    [pathTopRight fill];
-    
-    UIBezierPath *pathBotLeft = [UIBezierPath bezierPathWithRect:CGRectMake(width, qrImage.size.height-2*width , width, width)];
-    [[UIColor blueColor] setFill];
-    [pathBotLeft fill];
     
     // 再把logo画在背景区域上
     [logoImage drawInRect:logoRect];
@@ -97,4 +98,32 @@
     
     return image;
 }
+
+
+//+ (id)createRoundedRectImage:(UIImage*)image size:(CGSize)size radius:(NSInteger)r
+//{
+//    // the size of CGContextRef
+//    int w = size.width;
+//    int h = size.height;
+//    
+//    UIImage *img = image;
+//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+//    CGContextRef context = CGBitmapContextCreate(NULL, w, h, 8, 4 * w, colorSpace, kCGImageAlphaPremultipliedFirst);
+//    CGRect rect = CGRectMake(0, 0, w, h);
+//    
+//    CGContextBeginPath(context);
+//    addRoundedRectToPath(context, rect, r, r);
+//    CGContextClosePath(context);
+//    CGContextClip(context);
+//    CGContextDrawImage(context, CGRectMake(0, 0, w, h), img.CGImage);
+//    CGImageRef imageMasked = CGBitmapContextCreateImage(context);
+//    img = [UIImage imageWithCGImage:imageMasked];
+//    
+//    CGContextRelease(context);
+//    CGColorSpaceRelease(colorSpace);
+//    CGImageRelease(imageMasked);
+//    
+//    return img;
+//}
+
 @end
